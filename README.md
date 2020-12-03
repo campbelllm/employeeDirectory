@@ -9,7 +9,7 @@ A simple website that renders employees name and information. This data can be s
 https://github.com/campbelllm/employeeDirectory
 
 ## Link to site:
-
+https://campbelllm.github.io/employeeDirectory/
 
 ## Previews
 
