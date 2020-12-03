@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import ReactTable from "react-table-6";
 import 'react-table-6/react-table.css';
 
 
-const EmployeeTable = () =>  {  
+const EmployeeTable = ({searchValue,click}) =>  {  
+  console.log(click);
 
   const data= [
     {
@@ -62,13 +63,12 @@ const EmployeeTable = () =>  {
       accessor: 'tenure'
     }
   ];
-
-  
+ 
 
   return(
    <div className='table'>
       <ReactTable
-                data={data}
+                data={data.filter( x => x.name.toLowerCase().includes(searchValue.toLowerCase()))}
                 columns={columns}
                 defaultPageSize = {10}
                 pageSizeOptions = {[5,10,15]}

@@ -1,14 +1,17 @@
 import './App.css';
-import Navbar from '../src/components/Navbar';
-import Search from '../src/components/Search';
+import {useState} from 'react';
+import Navbar from './components/Navbar';
+import Search from './components/Search';
 import EmployeeTable from './components/EmployeeTable';
 
 function App() {
+  const [searchValue, setSearchValue] = useState('');
+  const [click, setClick] = useState(false)
   return (
     <>
     <Navbar/>
-    <Search/>
-    <EmployeeTable/>
+    <Search setSearchValue={setSearchValue} setClick={setClick} click={click}/>
+    <EmployeeTable  searchValue={searchValue} click={click}/>
     </>
   );
 }

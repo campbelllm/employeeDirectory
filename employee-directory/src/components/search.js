@@ -1,18 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { fas, faSearch} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Search = () =>{
+const Search = ({setSearchValue, setClick, click} ) =>{
+ 
+
   const handleClick = () => {
-
+   if(click){
+     setClick(false)
+    }else{
+       setClick(true)
+    }
+      
+    
   }
-  const handleChange = () => {
-
+  
+  const handleChange = (e) => {
+    setSearchValue(e.target.value)
   }
 
+
+  
   return(
     <div >
-      <input type="text" value={handleChange} placeholder="search" className='search'/>
+      <input type="text"  onChange={handleChange} placeholder="search" className='search'/>
       <button className='searchButton' onClick={handleClick}><FontAwesomeIcon icon={fas, faSearch} /></button>
     </div>
   )
